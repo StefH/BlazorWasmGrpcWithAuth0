@@ -20,7 +20,7 @@ namespace BlazorWasmGrpcWithAuth0.Client.Pages
         [Inject]
         public GrpcChannel Channel { get; set; }
 
-        private int currentCount = 0;
+        private int currentCount;
         private CancellationTokenSource cts;
         public Model Model = new Model();
         private string Error;
@@ -34,7 +34,7 @@ namespace BlazorWasmGrpcWithAuth0.Client.Pages
 
             try
             {
-                Model.Token = await GrpcBearerTokenProvider.GetTokenAsync(Program.Scope);
+                Model.Token = await GrpcBearerTokenProvider.GetTokenAsync();
             }
             catch (AccessTokenNotAvailableException a)
             {

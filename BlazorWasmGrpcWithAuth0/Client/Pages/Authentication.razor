@@ -3,5 +3,28 @@
 <RemoteAuthenticatorView Action="@Action" />
 
 @code{
-    [Parameter] public string Action { get; set; }
+    [Parameter]
+    public string Action { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        Console.WriteLine("1Action = " + Action);
+
+        return base.OnInitializedAsync();
+    }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+
+        Console.WriteLine("2Action = " + Action);
+
+        return base.SetParametersAsync(parameters);
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        Console.WriteLine("3Action = " + Action);
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
 }
