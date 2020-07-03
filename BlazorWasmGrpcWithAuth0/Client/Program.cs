@@ -24,11 +24,12 @@ namespace BlazorWasmGrpcWithAuth0.Client
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddTransient(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorWasmGrpcWithAuth0.ServerAPI"));
 
-            builder.Services.AddOidcAuthentication(options =>
+            builder.Services.AddAuth0Authentication(options =>
             {
                 // Configure your authentication provider options here. For more information, see https://aka.ms/blazor-standalone-auth
                 builder.Configuration.Bind("auth0", options.ProviderOptions);
 
+                Console.WriteLine("Audience = " + options.ProviderOptions.Audience);
                 // The callback url is : https://localhost:5001/authentication/login-callback
                 // Make sure to add this to the Auth0 allowed callback urls !
             });
