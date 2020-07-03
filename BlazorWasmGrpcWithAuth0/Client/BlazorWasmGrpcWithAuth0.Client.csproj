@@ -39,7 +39,6 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Blazor.WebAssembly.Authentication.Auth0\Blazor.WebAssembly.Auth0.csproj" />
     <ProjectReference Include="..\Shared\BlazorWasmGrpcWithAuth0.Shared.csproj" />
   </ItemGroup>
 
