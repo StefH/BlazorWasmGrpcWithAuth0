@@ -13,8 +13,6 @@ namespace BlazorWasmGrpcWithAuth0.Client
 {
     public class Program
     {
-        //internal static string Scope = "821eb724-edb8-4dba-b425-3f953250c0ae/API.Access";
-
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);

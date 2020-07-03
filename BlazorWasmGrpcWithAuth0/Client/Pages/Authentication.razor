@@ -8,23 +8,21 @@
 
     protected override Task OnInitializedAsync()
     {
-        Console.WriteLine("1Action = " + Action);
+        Console.WriteLine("OnInitializedAsync Action = " + Action);
 
         return base.OnInitializedAsync();
     }
 
     public override Task SetParametersAsync(ParameterView parameters)
     {
-
-        Console.WriteLine("2Action = " + Action);
+        Console.WriteLine("SetParametersAsync Action = " + Action);
 
         return base.SetParametersAsync(parameters);
     }
 
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
-        Console.WriteLine("3Action = " + Action);
+        Console.WriteLine("OnAfterRenderAsync Action = " + Action);
         return base.OnAfterRenderAsync(firstRender);
     }
-
 }

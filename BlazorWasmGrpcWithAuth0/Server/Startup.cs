@@ -27,12 +27,7 @@ namespace BlazorWasmGrpcWithAuth0.Server
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = "https://stef-heyenrath.eu.auth0.com/";
-                    options.Audience = "https://BlazorApi.Stef";
-
-                    options.SaveToken = true;
-
-                    options.IncludeErrorDetails = true;
+                    Configuration.Bind("auth0", options);
 
                     options.Events = new JwtBearerEvents
                     {
@@ -44,9 +39,7 @@ namespace BlazorWasmGrpcWithAuth0.Server
 
                         OnChallenge = ctx =>
                         {
-                            // invalid_token
-                            // https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/issues/13
-
+                            // invalid_token , https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/issues/13
                             Console.WriteLine("OnChallenge Error: " + ctx.Error);
                             Console.WriteLine("OnChallenge AuthenticateFailure.Message: " + ctx.AuthenticateFailure?.Message);
                             return Task.CompletedTask;
@@ -54,19 +47,19 @@ namespace BlazorWasmGrpcWithAuth0.Server
 
                         OnAuthenticationFailed = ctx =>
                         {
-                            Console.WriteLine("OnAuthenticationFailed:" + ctx.Exception.Message);
+                            Console.WriteLine("OnAuthenticationFailed: " + ctx.Exception.Message);
                             return Task.CompletedTask;
                         },
 
                         OnMessageReceived = ctx =>
                         {
-                            Console.WriteLine("OnMessageReceived:" + ctx.Token);
+                            Console.WriteLine("OnMessageReceived: " + ctx.Token);
                             return Task.CompletedTask;
                         },
 
                         OnTokenValidated = ctx =>
                         {
-                            Console.WriteLine("OnTokenValidated:" + ctx.SecurityToken.Id);
+                            Console.WriteLine("OnTokenValidated: " + ctx.SecurityToken.Id);
                             return Task.CompletedTask;
                         }
                     };
