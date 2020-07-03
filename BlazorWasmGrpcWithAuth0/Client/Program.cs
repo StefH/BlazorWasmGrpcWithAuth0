@@ -29,7 +29,6 @@ namespace BlazorWasmGrpcWithAuth0.Client
                 // Configure your authentication provider options here. For more information, see https://aka.ms/blazor-standalone-auth
                 builder.Configuration.Bind("auth0", options.ProviderOptions);
 
-                Console.WriteLine("Audience = " + options.ProviderOptions.Audience);
                 // The callback url is : https://localhost:5001/authentication/login-callback
                 // Make sure to add this to the Auth0 allowed callback urls !
             });
