@@ -9,7 +9,7 @@ namespace Microsoft.AspNetCore.Components.WebAssembly.Authentication
     public static class WebAssemblyAuth0ServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds support for authentication for SPA applications using <see cref="OidcProviderOptions"/> and the <see cref="RemoteAuthenticationState"/>.
+        /// Adds support for Auth0 authentication for SPA applications using <see cref="Auth0ProviderOptions"/> and the <see cref="RemoteAuthenticationState"/>.
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
         /// <param name="configure">An action that will configure the <see cref="RemoteAuthenticationOptions{TProviderOptions}"/>.</param>
