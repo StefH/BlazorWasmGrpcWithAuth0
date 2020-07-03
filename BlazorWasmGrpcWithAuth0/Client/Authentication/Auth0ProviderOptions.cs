@@ -19,6 +19,9 @@ namespace Microsoft.AspNetCore.Components.WebAssembly.Authentication
         /// See https://github.com/IdentityModel/oidc-client-js/blob/dev/src/OidcClient.js#L65
         /// </summary>
         [JsonPropertyName("extraQueryParams")]
-        public IDictionary<string, string> ExtraQueryParams => new Dictionary<string, string> { { AudienceKey, Audience } };
+        public IDictionary<string, string> ExtraQueryParams => new Dictionary<string, string>
+        {
+            { AudienceKey, Audience }
+        };
     }
 }
