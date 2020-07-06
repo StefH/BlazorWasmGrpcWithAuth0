@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using ProtoBuf.Grpc.Server;
 
 namespace BlazorWasmGrpcWithAuth0.Server
 {
@@ -75,6 +76,12 @@ namespace BlazorWasmGrpcWithAuth0.Server
             services.AddControllers();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddCodeFirstGrpc(config =>
+            {
+                config.ResponseCompressionLevel = System.IO.Compression.CompressionLevel.Optimal;
+            });
+            services.AddCodeFirstGrpcReflection();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -109,6 +116,10 @@ namespace BlazorWasmGrpcWithAuth0.Server
                 //endpoints.MapGrpcService<WeatherService>().EnableGrpcWeb();
 
                 endpoints.MapGrpcService<CounterService>().EnableGrpcWeb();
+                endpoints.MapGrpcService<CounterService>().EnableGrpcWeb();
+
+                endpoints.MapGrpcService<CalculatorService>().EnableGrpcWeb(); 
+                //endpoints.MapCodeFirstGrpcReflectionService();
 
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
