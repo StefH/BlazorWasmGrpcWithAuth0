@@ -116,10 +116,9 @@ namespace BlazorWasmGrpcWithAuth0.Server
                 //endpoints.MapGrpcService<WeatherService>().EnableGrpcWeb();
 
                 endpoints.MapGrpcService<CounterService>().EnableGrpcWeb();
-                endpoints.MapGrpcService<CounterService>().EnableGrpcWeb();
 
-                endpoints.MapGrpcService<CalculatorService>().EnableGrpcWeb(); 
-                //endpoints.MapCodeFirstGrpcReflectionService();
+                endpoints.MapGrpcService<CalculatorService>().EnableGrpcWeb();
+                endpoints.MapCodeFirstGrpcReflectionService();
 
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
