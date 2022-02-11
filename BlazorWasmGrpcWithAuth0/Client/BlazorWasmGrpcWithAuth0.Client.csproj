@@ -19,7 +19,7 @@
     <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
     <PackageReference Include="WebAssembly.Authentication.Auth0" Version="1.0.0.1" />
 
-    <PackageReference Include="Google.Protobuf" Version="3.12.3" />
+    <PackageReference Include="Google.Protobuf" Version="3.15.0" />
     <PackageReference Include="Grpc.Tools" Version="2.30.0" PrivateAssets="All" />
     <PackageReference Include="Grpc.Net.Client" Version="2.30.0-pre1" />
     <PackageReference Include="Grpc.Net.Client.Web" Version="2.30.0-pre1" />
